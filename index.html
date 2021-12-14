@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather Dashboard</title>
+    <!--Bootstrap CSS CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/cbbe2aaf9d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Jumbotron for Title-->
+
+    <div class="container">
+        <!--Row for searching a city-->
+        <div class="row ">
+
+            <div class="col-sm-4   box-sh left">
+                <div class="jumbotron left_heading">
+                    <h4> <i class="fas fa-sun sun left_nav_sun"></i><i class="fas fa-temperature-low"></i>Meteorolog</strong>
+                    </h4>
+                </div>
+
+                <div class="left_nav"> <br>
+                    <h6><i class="fas fa-th-large"></i> Dashboard</h6> <br>
+                    <h6><i class="far fa-chart-bar "> </i> Statistics</h6><br>
+                    <h6><i class="fas fa-map-marker-alt "></i> Maps</h6><br>
+                    <h6><i class="fas fa-calendar-week "></i> Clanender</h6><br>
+                    <h6><i class="fas fa-cog "></i> Setting</h6><br>
+                </div>
+                <!--Here we create an HTML form for handling the inputs-->
+                <div class=" left_info">
+                    <div class="col-sm-12 left_info_2" id="current-weather">
+                        <h4 class="left_info_h4"><i class="fas fa-cloud-sun"></i>Today</h4>
+                        <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+                        <hr>
+                        <p class="left_info_tem"><span class="current" id="temperature"></span></p>
+                        <p>Humidity:<span class="current" id="humidity"></span>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </p>
+
+                        <p class="left_info_wind">Wind Speed:<i class="fas fa-tachometer-alt"></i> <span class="current" id="wind-speed"></span>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </p>
+                        <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 right">
+
+                <!--Here we create the text box for capturing the search city Name-->
+                <div class="input-group mb-3 right_first">
+
+                    <div class="input-group-append ">
+                        <button class=" btn bg-primary text-light " id="search-button"><i class="fa fa-search"></i></button>
+                    </div>
+                    <input type="text" class="form-control" id="search-city" aria-label="City Search" aria-describedby="search-button" placeholder="click on search">
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i> <img src="image/logo.jpg" alt="pic">  Willan jacobson
+                        </button>
+
+                    </div>
+                </div>
+
+                <!--section for search city history-->
+                <button class=" btn btn-primary" type="button" id="clear-history">Clear history</button>
+
+                <ul class="list-group">
+
+                </ul>
+
+                <!--Row for future data to be dumped here-->
+                <div class="col-sm-12" id="future-weather">
+                    <h3>5-Day Forecast:</h3>
+                    <div class="row text-light right_third">
+                        <div class="col-sm-2  right_third_col forecast text-white ml-2 mb-3 p-2 mt-2 rounded future-weather-cards">
+                            <p id="fDate0"></p>
+                            <p id="fImg0"></p>
+                            <p>Temp:<span id="fTemp0" class="future-weather-cards"></span></p>
+                            <p>Humidity:<span id="fHumidity0"></span></p>
+                        </div>
+                        <div class="col-sm-2 right_third_col forecast text-white ml-2 mb-3 p-2 mt-2 rounded future-weather-cards">
+                            <p id="fDate1"></p>
+                            <p id="fImg1"></p>
+                            <p>Temp:<span id="fTemp1"></span></p>
+                            <p>Humidity:<span id="fHumidity1"></span></p>
+                        </div>
+                        <div class="col-sm-2 right_third_col forecast text-white ml-2 mb-3 p-2 mt-2 rounded future-weather-cards">
+                            <p id="fDate2"></p>
+                            <p id="fImg2"></p>
+                            <p>Temp:<span id="fTemp2"></span></p>
+                            <p>Humidity:<span id="fHumidity2"></span></p>
+                        </div>
+                        <div class="col-sm-2 right_third_col forecast text-white ml-2 mb-3 p-2 mt-2 rounded future-weather-cards">
+                            <p id="fDate3"></p>
+                            <p id="fImg3"></p>
+                            <p>Temp:<span id="fTemp3"></span></p>
+                            <p>Humidity:<span id="fHumidity3"></span></p>
+                        </div>
+                        <div class="col-sm-2 right_third_col forecast text-white ml-2 mb-3 p-2 mt-2 rounded future-weather-cards">
+                            <p id="fDate4"></p>
+                            <p id="fImg4"></p>
+                            <p>Temp:<span id="fTemp4"></span></p>
+                            <p>Humidity:<span id="fHumidity4"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right_last">
+                    <div class="right_last_h4">
+                        <h4>Weather Graph</h4>
+                    </div>
+                    <div class="right_last_img">
+                        <img src="image/weather.jpg" alt="">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--jQuery JS-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <!--Code to Jvascript File-->
+    <script src="script.js"></script>
+</body>
+
+</html>
